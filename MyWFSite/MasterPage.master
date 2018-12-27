@@ -11,8 +11,11 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
+            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapMenuSrc">
+            </asp:Menu>
+            <asp:SiteMapDataSource ID="SiteMapMenuSrc" runat="server" ShowStartingNode="False" /> 
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">    
         </asp:ContentPlaceHolder>
     </div>
     </form>
