@@ -2,42 +2,55 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
-/// Summary description for SubjectFunctions
+/// Summary description for StudentFunctions
 /// </summary>
-public class SubjectFunctions
+public class StudentFunctions
 {
     ConToDb connstr = new ConToDb("ProjectStudentsDB");
 
-    public SubjectFunctions()
+    public StudentFunctions()
     {
         //
         // TODO: Add constructor logic here
         //
     }
 
-    public void InsertSubject(string subject, string teacher, string date)
+    /// <summary>
+    /// inserts student in to database
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="surname"></param>
+    /// <param name="grade"></param>
+    /// <param name="subject"></param>
+    public void InsertStudent(string name, string surname, short grade, string subject)
     {
 
         using (SqlConnection sqlconn = new SqlConnection(connstr.GetConnectionString()))
         {
             SqlCommand sqlquery = new SqlCommand();
-            sqlquery.CommandText = string.Format("INSERT INTO Subjects VALUES ('{0}','{1}','{2}')", subject, teacher, date);
+            sqlquery.CommandText = string.Format("InsStudent");
+            sqlquery.CommandType = CommandType.StoredProcedure;
+            sqlquery.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 50));
+            sqlquery.Parameters["@name"].Value = name;
+            sqlquery.Parameters.Add(new SqlParameter("@surname", SqlDbType.VarChar, 50));
+            sqlquery.Parameters["@surname"].Value = surname;
+            sqlquery.Parameters.Add(new SqlParameter("@grade", SqlDbType.SmallInt));
+            sqlquery.Parameters["@grade"].Value = grade;
+            sqlquery.Parameters.Add(new SqlParameter("@subject", SqlDbType.VarChar, 50));
+            sqlquery.Parameters["@subject"].Value = subject;
             sqlconn.Open();
             sqlquery.Connection = sqlconn;
             sqlquery.ExecuteNonQuery();
             sqlconn.Close();
         }
     }
-    
-    /// <summary>
-    /// returns subject summary for all subjects
-    /// </summary>
-    /// <returns></returns>
-    public DataTable SelectSubjectInfo() { 
+
+    /*public DataTable SelectSubjectInfo()
+    {
         using (SqlConnection sqlconn = new SqlConnection(connstr.GetConnectionString()))
         {
             string sqlquery = "SELECT Subject, Teacher, ExamDate FROM Subjects";
@@ -48,7 +61,7 @@ public class SubjectFunctions
                 SqlDataAdapter sda = new SqlDataAdapter(sqlquery, connstr.GetConnectionString());
                 sqlconn.Open();
                 sda.Fill(dt);
-                return dt;                
+                return dt;
             }
 
             finally
@@ -59,10 +72,6 @@ public class SubjectFunctions
         }
     }
 
-    /// <summary>
-    /// Returns distinct list of subjects
-    /// </summary>
-    /// <returns></returns>
     public DataTable SelectDistinctSubject()
     {
         using (SqlConnection sqlconn = new SqlConnection(connstr.GetConnectionString()))
@@ -84,5 +93,5 @@ public class SubjectFunctions
                 sqlconn.Dispose();
             }
         }
-    }
+    }*/
 }

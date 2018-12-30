@@ -5,9 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:Repeater ID="rptrSubjectSummary" runat="server">
         <ItemTemplate>
-            <asp:Table runat="server">
-
-            </asp:Table>
+            <table>
+                <tr><th>Subject</th><th><%#Eval("Subject") %></th></tr>
+                <tr><td>Teacher</td><td><%#Eval("Teacher") %></td></tr>
+                <tr><td>ExamDate</td><td><%#Eval("ExamDate") %></td></tr>
+            </table>
         </ItemTemplate>
     </asp:Repeater>
 </asp:Content>
