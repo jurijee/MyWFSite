@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CLStudentsDb;
 
 public partial class Students : System.Web.UI.Page
 {
@@ -29,8 +30,8 @@ public partial class Students : System.Web.UI.Page
     //inserting new student record in to the database
     protected void btnImportStudentInfo_Click(object sender, EventArgs e)
     {
-        StudentFunctions instudent = new StudentFunctions();
-        instudent.InsertStudent(txtName.Text,txtSurname.Text,short.Parse(txtGrade.Text),ddlSubjectDrop.SelectedValue);
+        StudentFunctions instudent = new StudentFunctions(txtName.Text, txtSurname.Text, short.Parse(txtGrade.Text), ddlSubjectDrop.SelectedValue);
+        instudent.InsertStudent();
     }
 
     //check if checkbox is checked :) if yes, you can proceed with delete all student records

@@ -15,7 +15,8 @@
     </div>
     <div>
         <asp:Label Width="200" runat="server" Text="Exam date (not required)" /> 
-        <asp:Calendar ID="cldrExamDate" runat="server"/>   
+        <asp:Calendar ID="cldrExamDate" runat="server" FirstDayOfWeek="Monday" WeekendDayStyle-BackColor="SpringGreen" TodayDayStyle-BackColor="Teal"/>   
+        <asp:Label ID="lblTest" runat="server" Text="" />
     </div>
     <div>
         <asp:Button ID="btnImportSubjectInfo" runat="server" Text="ImportSubjectInfo" OnClick="btnImportSubjectInfo_Click" ValidationGroup="Grp1"/>

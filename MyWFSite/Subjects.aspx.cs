@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CLStudentsDb;
 
 public partial class Subjects : System.Web.UI.Page
 {
@@ -18,11 +19,19 @@ public partial class Subjects : System.Web.UI.Page
 
     protected void btnImportSubjectInfo_Click(object sender, EventArgs e)
     {
-        SubjectFunctions insrt = new SubjectFunctions();
-        if (string.Compare(cldrExamDate.SelectedDate.ToString(),"") != 0)
-            insrt.InsertSubject(txtSubject.Text,txtTeacher.Text,cldrExamDate.SelectedDate.ToString());
+        //branches for selected and not selected exam date
+        if (cldrExamDate.SelectedDate.ToShortDateString() != DateTime.MinValue.ToShortDateString())
+        {
+            SubjectFunctions insrt = new SubjectFunctions(txtSubject.Text, txtTeacher.Text, cldrExamDate.SelectedDate.ToShortDateString().ToString());
+            insrt.InsertSubject();
+            lblTest.Text = string.Format("Selected date:{0}", cldrExamDate.SelectedDate.ToShortDateString().ToString());
+        }
         else
-            insrt.InsertSubject(txtSubject.Text, txtTeacher.Text, "NULL");
+        {
+            SubjectFunctions insrt = new SubjectFunctions(txtSubject.Text, txtTeacher.Text);
+            insrt.InsertSubject();
+            lblTest.Text = string.Format("not selected date");
+        }    
     }
 
     //check if checkbox is checked :) if yes, you can proceed with delete all student records
