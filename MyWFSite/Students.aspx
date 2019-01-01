@@ -4,10 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-        <label>You're using browser:</label>
-        <asp:Literal ID="ltrlTest" runat="server"/>
-    </div>
-    <div>
         <asp:Label Width="100" runat="server" Text="Name" />
         <asp:TextBox ID="txtName" runat="server"/>
         <asp:RequiredFieldValidator runat="server" ID="rfvStudentName" ErrorMessage="Required field." ControlToValidate="txtName" ValidationGroup="InsStudent"/>
@@ -32,14 +28,15 @@
         <asp:RequiredFieldValidator runat="server" ID="rfvDropDown" ErrorMessage="Required field." InitialValue="--PLEASE SELECT--" ControlToValidate="ddlSubjectDrop" ValidationGroup="InsStudent"/>
     </div>
     <div>
-        <asp:Button ID="btnImportStudentInfo" runat="server" Text="ImportStudentInfo" ValidationGroup="InsStudent" OnClick="btnImportStudentInfo_Click"/>
+        <asp:Button ID="btnImportStudentInfo" CssClass="btn" runat="server" Text="ImportStudentInfo" ValidationGroup="InsStudent" OnClick="btnImportStudentInfo_Click"/>
     </div>
         <div>
         <asp:literal ID="ltrTest" runat="server" />
     </div>
     <div>
+        <asp:Label runat="server" Text="Please confirm deletion by clicking on checkbox first." /><br>
         <asp:CheckBox ID="chckBox" runat="server" text="DeleteStudents" AutoPostBack="True" OnCheckedChanged="chckBox_CheckedChanged"/>
-        <asp:Button ID="btnDelStudents" runat="server" Text ="DeleteStudents" OnClick="btnDelStudents_Click"/>
+        <asp:Button ID="btnDelStudents" CssClass="btn" runat="server" Text ="DeleteStudents" OnClick="btnDelStudents_Click"/>
     </div>
 </asp:Content>
 

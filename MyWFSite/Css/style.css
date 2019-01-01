@@ -1,0 +1,61 @@
+body{
+	width: 960px;
+	padding-left: 100px;
+	font-family: 'Verdana';
+}
+
+.menulistitem{
+	text-decoration: none;
+	border-radius: 5px;
+	color: #FFF0FC;
+	background-color: #3C37FF;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+li{
+	display: inline;
+	padding: 0px 10px;
+}
+
+div{
+	padding: 10px;
+}
+
+a:hover {
+	background-color: #5AE1E8;
+}
+
+.btn{
+	padding: 2px 2px;
+	font-family: "Arial";
+	font-size: 14px;
+	font-weight: normal;
+	background-color: #E8E4D2;
+	border-radius: 4px;
+}
+
+asp:Button:hover{ 
+	cursor: hand; 
+}
+
+.rptr table
+{
+ background: #eee;
+ font: 14px segoe ui;
+ border-collapse: collapse;
+ width: 25%;
+ margin: 5px;
+ --float: left;
+}
+.rptr table th
+{
+ background: #f90;
+ color: #fff;
+ padding: 8px 10px;
+ text-align: left;
+}
+.rptr table td
+{
+ padding: 5px 10px;
+}

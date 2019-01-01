@@ -5,16 +5,25 @@
 <html>
 <head runat="server">
     <title>Students</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css"  />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapMenuSrc">
-            </asp:Menu>
-            <asp:SiteMapDataSource ID="SiteMapMenuSrc" runat="server" ShowStartingNode="False" /> 
+        <%-- <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapMenuSrc">
+        </asp:Menu>   
+        <asp:SiteMapDataSource ID="SiteMapMenuSrc" runat="server" ShowStartingNode="False" /> --%>
 
+        <nav>
+            <ul>
+                <li><a href="Overview.aspx" class="menulistitem">Overview</a></li>
+                <li><a href="Subjects.aspx" class="menulistitem">Subjects</a></li>
+                <li><a href="Students.aspx" class="menulistitem">Students</a></li>
+            </ul>
+        </nav>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">    
         </asp:ContentPlaceHolder>
     </div>

@@ -22,7 +22,6 @@ public partial class Students : System.Web.UI.Page
             btnDelStudents.Enabled = false;
 
             //testing dev tools/features
-            ltrlTest.Text = Page.Request.Browser.Browser;
             //Trace.IsEnabled = true;
         }
     }
